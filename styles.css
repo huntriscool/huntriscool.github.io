@@ -1,0 +1,398 @@
+/* =========================================================
+   Matthew Justic portfolio: styles
+   Mobile first: the base styles are for phones, and the
+   @media (min-width: ...) blocks at the bottom add the wider layouts.
+   ========================================================= */
+
+/* ---------- 1. Design tokens (change colours/fonts here) ---------- */
+:root {
+  --bg: #080b10;          /* page background */
+  --surface: #0f141c;     /* cards */
+  --border: #1f2733;      /* subtle borders */
+  --text: #e8ecf3;        /* main text */
+  --muted: #9aa6b8;       /* secondary text (still passes contrast on --bg) */
+  --accent: #6ea8ff;      /* the ONE accent colour: swap it to restyle the site */
+  --on-accent: #06101f;   /* text on top of the accent colour */
+
+  --font: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --radius: 14px;
+  --header-h: 64px;
+}
+
+/* ---------- 2. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);   /* stops the sticky nav covering section titles */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--accent); }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, p { margin: 0; }
+
+h2 {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+h3 { font-size: 1.1rem; font-weight: 700; }
+
+.container {
+  width: 100%;
+  max-width: 1040px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Skip link: hidden until you tab to it */
+.skip-link {
+  position: absolute;
+  left: 1rem; top: -4rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  z-index: 100;
+  text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------- 3. Header / nav ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-h);
+  background: rgba(8, 11, 16, .88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  color: var(--text);
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+/* Mobile menu: the list drops down below the header */
+.nav-links {
+  display: none;
+  position: absolute;
+  top: var(--header-h);
+  left: 0; right: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: .5rem 1.25rem 1rem;
+}
+.nav-links.open { display: block; }
+
+.nav-links a {
+  display: block;
+  padding: .75rem 0;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--accent); }
+
+/* Hamburger button (three lines drawn with CSS) */
+.menu-toggle {
+  margin-left: auto;               /* pushes the button to the right edge */
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: 44px; height: 44px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  display: block;
+  width: 18px; height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  content: "";
+  position: relative;
+}
+.menu-icon::before { position: absolute; top: -6px; }
+.menu-icon::after  { position: absolute; top: 6px; }
+
+/* ---------- 4. Hero ---------- */
+.hero { padding: 3rem 0 4rem; }
+
+.hero-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-photo {
+  order: -1;                       /* photo sits above the text on mobile */
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  box-shadow: 0 0 0 6px rgba(110, 168, 255, .12);
+}
+
+.hero-kicker {
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6.5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 20ch;
+}
+
+.hero-intro {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 56ch;
+  margin-top: 1.25rem;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.75rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: .75rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color .2s, border-color .2s, transform .2s;
+}
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-secondary { border-color: var(--border); color: var(--text); }
+.btn-secondary:hover { border-color: var(--accent); }
+
+.icon-links {
+  display: flex;
+  gap: .75rem;
+  margin-top: 1.75rem;
+}
+.icon-links a {
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  transition: border-color .2s;
+}
+.icon-links a:hover { border-color: var(--accent); }
+.icon-links svg { width: 20px; height: 20px; fill: var(--text); }
+
+/* ---------- 5. Sections ---------- */
+.section { padding: 3.5rem 0; }
+
+.lead {
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 68ch;
+}
+
+.meta { color: var(--muted); font-size: .95rem; }
+
+.note {
+  margin-top: 2rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Experience timeline: a line on the left with a dot per job */
+.timeline {
+  border-left: 2px solid var(--border);
+  margin-left: .4rem;
+  display: grid;
+  gap: 2rem;
+}
+.timeline-item {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px; top: .45rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.timeline-item ul,
+.card ul:not(.tags) {
+  margin-top: .75rem;
+  display: grid;
+  gap: .4rem;
+  color: var(--muted);
+}
+.timeline-item li,
+.card ul:not(.tags) li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+.timeline-item li::before,
+.card ul:not(.tags) li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .7em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+/* Cards (projects + education) */
+.card-grid {
+  display: grid;
+  gap: 1rem;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color .2s, transform .2s;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card p:not(.meta) { color: var(--muted); margin-top: .5rem; }
+.card .meta { margin-top: .35rem; }
+.card-dashed { border-style: dashed; background: transparent; }
+
+.card-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+/* Pill tags (skills + project tech) */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.card .tags { margin-top: 1rem; }
+.tags li {
+  padding: .35rem .9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: .95rem;
+}
+.tags .tag-placeholder {
+  border-style: dashed;
+  background: transparent;
+  color: var(--muted);
+}
+
+.group-title {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 1.5rem 0 .75rem;
+}
+.group-title:first-of-type { margin-top: 0; }
+
+/* ---------- 6. Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* ---------- 7. Fade-in on scroll ---------- */
+/* Only hidden when JS is running (the "js" class is added in index.html) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.js .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect people who turn animations off in their device settings */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- 8. Wider screens ---------- */
+@media (min-width: 700px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 860px) {
+  .hero { padding: 5rem 0 6rem; }
+
+  .hero-grid { grid-template-columns: 1fr 260px; gap: 4rem; }
+  .hero-photo { order: 0; width: 260px; height: 260px; }
+
+  .section { padding: 5rem 0; }
+
+  /* Nav becomes a normal row of links; hamburger disappears */
+  .menu-toggle { display: none; }
+  .nav-bar nav { margin-left: auto; }
+  .nav-links {
+    display: flex;
+    position: static;
+    background: none;
+    border: 0;
+    padding: 0;
+    gap: 1.5rem;
+  }
+  .nav-links a { padding: .5rem 0; font-size: .95rem; }
+}

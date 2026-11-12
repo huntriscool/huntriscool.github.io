@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Marks the page as "JS is on" so the fade-in effect only runs when it can actually finish -->
+    <script>
+      document.documentElement.classList.add('js')
+    </script>
+
+    <title>Matthew Justic | IT Student, Sydney</title>
+    <meta
+      name="description"
+      content="Matthew Justic is a first-year IT student at Macquarie University in Sydney, looking for part-time, entry-level and internship work."
+    />
+    <meta name="theme-color" content="#080b10" />
+
+    <!-- Open Graph (link previews on LinkedIn, Slack, iMessage etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Matthew Justic | IT Student, Sydney" />
+    <meta
+      property="og:description"
+      content="First-year IT student at Macquarie University looking for part-time, entry-level and internship work."
+    />
+    <!-- TODO: once the site is live, add your full site URL and a preview image (about 1200x630), e.g.
+  <meta property="og:url" content="https://your-site-url.example">
+  <meta property="og:image" content="https://your-site-url.example/assets/og-image.png"> -->
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+    <!-- One font: Manrope. If it fails to load, the system font stack in styles.css takes over -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ============ NAV ============ -->
+    <header class="site-header">
+      <div class="container nav-bar">
+        <a class="brand" href="#top">Matthew Justic</a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span class="visually-hidden">Menu</span>
+          <span class="menu-icon" aria-hidden="true"></span>
+        </button>
+
+        <nav aria-label="Main">
+          <ul id="nav-links" class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ============ HERO ============ -->
+      <section class="hero" id="top">
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <p class="hero-kicker">IT student · Sydney, Australia</p>
+            <h1>
+              Hi, I'm Matthew. I'm studying IT and learning to build software that people can
+              actually use.
+            </h1>
+            <p class="hero-intro">
+              First-year Bachelor of Information Technology student at Macquarie University, looking
+              for part-time, entry-level and internship work. Four years in hospitality, retail and
+              supervision have taught me to stay calm under pressure and look after the people in
+              front of me.
+            </p>
+
+            <div class="button-row">
+              <a class="btn btn-primary" href="#projects">View projects</a>
+              <a class="btn btn-secondary" href="assets/Matthew_Justic_Resume.pdf" download
+                >Download CV</a
+              >
+              <a class="btn btn-secondary" href="#contact">Contact me</a>
+            </div>
+
+            <ul class="icon-links" aria-label="Find me online">
+              <li>
+                <a href="mailto:mattjustic@gmail.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm0 2v.5l8 5.2 8-5.2V7l-8 5.2L4 7zm16 10V9.9l-8 5.2-8-5.2V17h16z"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/matthew-justic/" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3V9.75zm6.5 0h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.85h-4v-5.2c0-1.24-.02-2.83-1.73-2.83-1.73 0-2 1.35-2 2.74v5.29h-4V9.75z"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/huntriscool" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.35 1.08 2.92.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <img
+            class="hero-photo"
+            src="assets/photo.jpg"
+            alt="Photo of Matthew Justic"
+            width="260"
+            height="260"
+          />
+        </div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section class="section reveal" id="about" aria-labelledby="about-title">
+        <div class="container">
+          <h2 id="about-title">About</h2>
+          <p class="lead">
+            I'm a motivated and reliable IT undergraduate at Macquarie University. Over the past
+            four years I've worked across hospitality, retail and supervisory roles, so I'm used to
+            giving good service, handling pressure and picking up new environments quickly. I hold a
+            Certificate III in Information Technology and a Certificate II in Hospitality, and I
+            bring a proactive, team-oriented attitude to every role.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ EXPERIENCE ============ -->
+      <section class="section reveal" id="experience" aria-labelledby="experience-title">
+        <div class="container">
+          <h2 id="experience-title">Experience</h2>
+
+          <ol class="timeline">
+            <li class="timeline-item">
+              <h3>Crew Member</h3>
+              <p class="meta">Kmart, Parramatta · Sep 2024 – Present</p>
+              <ul>
+                <li>
+                  Deliver consistent, professional customer service across the registers and the
+                  customer service desk.
+                </li>
+                <li>
+                  Process refunds, exchanges and laybys in line with store policy, handling
+                  sensitive customer information with discretion.
+                </li>
+                <li>Operate POS systems and handle cash.</li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+              <h3>Crew Member</h3>
+              <p class="meta">June Cafe, Winston Hills · May 2024 – Feb 2025</p>
+              <ul>
+                <li>Provided attentive front-of-house service in a fast-paced café.</li>
+                <li>Trained as a barista, making espresso-based drinks to quality standards.</li>
+                <li>
+                  Managed table service, patron engagement and order accuracy during peak periods.
+                </li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+              <h3>Crew Member &amp; Supervisor</h3>
+              <p class="meta">Ultimate Sydney, Northmead · Mar 2023 – Sep 2024</p>
+              <ul>
+                <li>
+                  Supervised up to three staff per shift during private functions and large events.
+                </li>
+                <li>
+                  Hosted children's birthday parties and private functions, which took strong
+                  communication and organisation.
+                </li>
+                <li>Oversaw the café, kitchen and cash handling, including closing the tills.</li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+              <h3>Crew Member</h3>
+              <p class="meta">McDonald's, Seven Hills North · Oct 2022 – Nov 2023</p>
+              <ul>
+                <li>
+                  Fully trained across McCafé, front counter, drive-thru and order taking in a
+                  high-volume setting.
+                </li>
+                <li>Kept up team reliability and performance standards throughout.</li>
+              </ul>
+            </li>
+          </ol>
+
+          <p class="note">References available on request.</p>
+        </div>
+      </section>
+
+      <!-- ============ PROJECTS ============ -->
+      <section class="section reveal" id="projects" aria-labelledby="projects-title">
+        <div class="container">
+          <h2 id="projects-title">Projects</h2>
+
+          <div class="card-grid">
+            <article class="card">
+              <h3>Birthday Budget Planner</h3>
+              <p>
+                A Java app I built for my COMP1010 assignment. It keeps track of friends' birthdays
+                and gift budgets, and helps me stay within a monthly budget.
+              </p>
+              <ul class="tags" aria-label="Technologies used">
+                <li>Java</li>
+              </ul>
+              <a
+                class="card-link"
+                href="https://github.com/huntriscool/comp1010/tree/main/majorProjectFinal61005622"
+                >View on GitHub</a
+              >
+            </article>
+
+            <article class="card card-dashed">
+              <h3>More coming soon</h3>
+              <p>I'm building new projects as I learn. Check back, or follow along on GitHub.</p>
+              <a class="card-link" href="https://github.com/huntriscool">See my GitHub</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SKILLS ============ -->
+      <section class="section reveal" id="skills" aria-labelledby="skills-title">
+        <div class="container">
+          <h2 id="skills-title">Skills</h2>
+
+          <h3 class="group-title">Tech</h3>
+          <ul class="tags">
+            <li>Java</li>
+            <li>HTML, CSS, JavaScript</li>
+          </ul>
+
+          <h3 class="group-title">Professional</h3>
+          <ul class="tags">
+            <li>Customer service</li>
+            <li>Team supervision</li>
+            <li>Cash handling &amp; POS</li>
+            <li>Communication</li>
+            <li>Working under pressure</li>
+            <li>Barista / hospitality</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ EDUCATION ============ -->
+      <section class="section reveal" id="education" aria-labelledby="education-title">
+        <div class="container">
+          <h2 id="education-title">Education</h2>
+
+          <div class="card-grid">
+            <article class="card">
+              <h3>Bachelor of Information Technology</h3>
+              <p class="meta">Macquarie University · 2026 – Present</p>
+            </article>
+
+            <article class="card">
+              <h3>Certificate III in Information Technology</h3>
+              <p class="meta">ICT30120 · TAFE NSW Blacktown · 2024 – 2025</p>
+            </article>
+
+            <article class="card">
+              <h3>Certificate II in Hospitality</h3>
+              <p class="meta">Model Farms High School / TVET · 2024 – 2025</p>
+            </article>
+
+            <article class="card">
+              <h3>Model Farms High School</h3>
+              <p class="meta">Baulkham Hills · Graduated 2025</p>
+              <ul>
+                <li>SRC President, Senior Leadership (2025)</li>
+                <li>School Prefect, Senior Leadership (2024)</li>
+                <li>SRC Member (2021–2023)</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section class="section reveal" id="contact" aria-labelledby="contact-title">
+        <div class="container contact">
+          <h2 id="contact-title">Let's chat</h2>
+          <p class="lead">
+            I'm looking for part-time, entry-level and internship opportunities in IT. If you think
+            I could be a good fit, or you just want to say hi, send me an email. References are
+            available on request.
+          </p>
+
+          <div class="button-row">
+            <a class="btn btn-primary" href="mailto:mattjustic@gmail.com">Email me</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/matthew-justic/"
+              >LinkedIn</a
+            >
+            <a class="btn btn-secondary" href="https://github.com/huntriscool">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <span id="year">2026</span> Matthew Justic</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
